@@ -14,7 +14,8 @@ If you happen to like a book by an author, you would also be able to filter by t
 
 # Relations
 
-https://www.draw.io/#G0B8pWXZoGxuHcSTM3MnVIcFJ6d0E
+v2 https://www.draw.io/#G0B8pWXZoGxuHcWE1oUVlvVDdKTE0
+v1 https://www.draw.io/#G0B8pWXZoGxuHcSTM3MnVIcFJ6d0E
 
 ----
 
