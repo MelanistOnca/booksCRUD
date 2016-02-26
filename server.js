@@ -16,8 +16,11 @@ var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
-var booksRouter = require('./routes/books');
-var usersRouter = require('./routes/users');
+//routing vars
+var booksRoute = require( path.join( __dirname, 'routes/books') );
+var usersRoute = require( path.join( __dirname, 'routes/users') );
+var genresRoute = require( path.join( __dirname, 'routes/genres') );
+var authorsRoute = require( path.join( __dirname, 'routes/authors') );
 
 var app = express();
 
@@ -44,10 +47,11 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-app.use('/books', booksRouter);
-app.use('/users', usersRouter);
+app.use('/books', booksRoute);
+app.use('/users', usersRoute);
+app.use('/authors', authorsRoute);
 
 
 app.listen(process.env.PORT, function() {
-  console.log(`Listening on port ${process.env.PORT}`);
+  console.log(`Your server is running on port ${process.env.PORT}, hope you can catch it!`);
 });
