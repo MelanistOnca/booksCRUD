@@ -21,7 +21,7 @@ router
 //post new book
 //users should not be able to access this unless logged in.
 router
-  .get('/newBook', (req,res) => {
+  .get('/new_Book', (req,res) => {
     res.render('books/new_book', {
       book: {
         title:'',
@@ -30,10 +30,17 @@ router
       }
     });
   })
-  .post('/newBook', db.createBook, (req, res) => {
-    res.redirect(`books/${res.books[0].id}`);
+  .post('/new_Book', db.createBook,
+  (req, res) => {
+    res.redirect(303,`/${res.books[0].id}`);
+    // (res,req) => res.send('post happened at /new_book') )
   })
+  .delete('/new_Book', /*getBooksfromSQL, */ notImplement )
+  .put('/new_Book', /*getBooksfromSQL, */ notImplement )
 
+
+router
+  .get('/:bID', notImplement)
 
 
 //delete

@@ -5,10 +5,26 @@
     <title>Add a new book</title>
   </head>
   <body>
-    Please enter the following:
 
-    <% include ./../partials/book_title %>
-    <% include ./../partials/book_description %>
-    <% include ./../partials/book_cover_url %>
+
+    <div class="mainContainer">
+  <div class="starter-template">
+    <h1>Add to the library</h1>
+    <p class="lead">Use this form to enter a book.</p>
+    <form class="form-horizontal" action="/books/new_Book/" method="post">
+    <fieldset>
+
+      <% include ./../partials/book_title %>
+      <% include ./../partials/book_description %>
+      <% include ./../partials/book_cover_url %>
+      <% include ./../partials/submit_button %>
+
+    </fieldset>
+    </form>
+    </div>
+
+</div>
+
+
   </body>
 </html>
