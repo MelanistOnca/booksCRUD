@@ -30,3 +30,26 @@ module.exports.getBooks = (req, res, next) => {
     });
   });
 };
+
+//this function will not currently be callable by users, add this functionality after login.
+module.exports.createBook = (req, res, next) => {
+  pg.connect(DB_config, (err, client, done) => {
+    if (err) {
+      done();
+      console.log(err);
+      res.status(500).json({success: false, data: err});
+    }
+
+    client.query('INSERT INTO books (title, description, cover) VALUES ($1,$2,$3) RETURNING id', [req.body.title, req.body.description, req.body.cover], (err, results) => {
+      done();
+
+      if (err) {
+        console.error('Error with query', err);
+      }
+
+      res.books = results.rows;
+      next();
+    });
+  });
+
+};
