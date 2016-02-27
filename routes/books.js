@@ -10,8 +10,11 @@ var notImplement = (req,res) => {
 }
 
 //get
-router.get('/', /*getBooksfromSQL, */notImplement )
-
+// router.get('/', /*getBooksfromSQL, */notImplement )
+router
+  .get('/', db.getBooks, (req,res) => {
+    res.render('books/bindex', {books:res.books})
+  })
 
 //post
 router.post('/', /*getBooksfromSQL, */ notImplement)

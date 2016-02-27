@@ -12,8 +12,10 @@ var notImplement = (req,res) => {
 }
 
 //get
-router.get('/', /*getusersfromSQL, */notImplement )
-
+router
+  .get('/', db.getUsers, (req,res) => {
+    res.render('users/uindex', {users:res.users})
+  })
 
 //post
 router.post('/', /*getusersfromSQL, */ notImplement)

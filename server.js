@@ -19,10 +19,23 @@ var methodOverride = require('method-override');
 //routing vars
 var booksRoute = require( path.join( __dirname, 'routes/books') );
 var usersRoute = require( path.join( __dirname, 'routes/users') );
-var genresRoute = require( path.join( __dirname, 'routes/genres') );
 var authorsRoute = require( path.join( __dirname, 'routes/authors') );
 
+// var genresRoute = require( path.join( __dirname, 'routes/genres') ); //dont actually think i'll need this.
+
 var app = express();
+
+//DB config for db function files
+DB_config = {
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  database: process.env.DB_NAME,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS
+};
+
+// placeholder route function
+
 
 //determine logger version
 if( process.env.NODE_ENV === 'development' ){
@@ -47,6 +60,8 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
+
+
 app.use('/books', booksRoute);
 app.use('/users', usersRoute);
 app.use('/authors', authorsRoute);
@@ -55,3 +70,5 @@ app.use('/authors', authorsRoute);
 app.listen(process.env.PORT, function() {
   console.log(`Your server is running on port ${process.env.PORT}, hope you can catch it!`);
 });
+
+module.exports.DB_config;
