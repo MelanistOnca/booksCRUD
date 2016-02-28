@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add a new book</title>
+  </head>
+  <body>
+
+
+    <div class="newBookContainer">
+  <div class="starter-template">
+    <h1>Add to the library</h1>
+    <p class="lead">Use this form to enter a book.</p>
+    <form class="form-horizontal" action="/books/new_Book/" method="post">
+    <fieldset>
+
+      <% include ./../partials/book_title_entry %>
+      <% include ./../partials/book_description_entry %>
+      <% include ./../partials/book_cover_url_entry %>
+      <% include ./../partials/submit_button %>
+
+    </fieldset>
+    </form>
+    </div>
+
+</div>
+
+
+  </body>
+</html>
