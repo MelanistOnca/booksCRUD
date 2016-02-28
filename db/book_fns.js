@@ -79,3 +79,52 @@ module.exports.getSingleBook = (req, res, next) => {
     });
   });
 };
+
+module.exports.deleteSingleBook = (req, res, next) => {
+  console.log(req.params.bID, 'that was req.params.bID for deleteSingleBook');
+  pg.connect(DB_config, (err, client, done) => {
+    if (err) {
+      done();
+      console.log(err);
+      res.status(500).json({success: false, data: err});
+    }
+
+
+    client.query('DELETE FROM books WHERE id = $1', [req.params.bID], (err, results) => {
+      done();
+
+      if (err) {
+        console.error('Error with query', err);
+      }
+
+      next();
+    });
+
+  });
+
+};
+
+module.exports.updateSingleBook = (req, res, next) => {
+  console.log(req.body, req.params.bID, 'this was req.body and req.params for updateSingleBook before update');
+  pg.connect(DB_config, (err, client, done) => {
+    if (err) {
+      done();
+      console.log(err);
+      res.status(500).json({success: false, data: err});
+    }
+
+
+    client.query('UPDATE books SET title = $1, description = $2, cover = $3 WHERE id = $4', [req.body.title, req.body.description, req.body.cover, req.params.bID], (err, results) => {
+      console.log(req.body, req.params.bID, 'this was req.body and req.params.bID for updateSingleBook after update');
+      done();
+
+      if (err) {
+        console.error('Error with query', err);
+      }
+
+      next();
+    });
+
+  });
+
+};

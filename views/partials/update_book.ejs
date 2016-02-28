@@ -1,0 +1,17 @@
+<div class="updateContainer">
+<div class="starter-template">
+
+<p class="lead">Use this form to update a book.</p>
+<form class="form-horizontal" action="/books/<%= book[0].id %>?_method=PUT" method="post">
+<fieldset>
+
+  <% include ./../partials/book_title_entry %>
+  <% include ./../partials/book_description_entry %>
+  <% include ./../partials/book_cover_url_entry %>
+  <% include ./../partials/submit_button %>
+
+</fieldset>
+</form>
+</div>
+
+</div>
