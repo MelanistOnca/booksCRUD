@@ -48,10 +48,34 @@ module.exports.createBook = (req, res, next) => {
         console.error('Error with query', err);
       }
       console.log(req.body, 'that was req.body');
-      console.log(results.row, 'that was results.row');
+      console.log(results.rows, 'that was results.row');
       res.books = results.rows;
       next();
     });
   });
   console.log('createbook ran');
+};
+
+module.exports.getSingleBook = (req, res, next) => {
+  console.log(req.body, 'this was req.body');
+  console.log(req.params.id, 'this was req.params.id');
+  console.log(req.params.bID, 'that was req.params.bID');
+  pg.connect(DB_config, (err, client, done) => {
+    if (err) {
+      done();
+      console.log(err);
+      res.status(500).json({success: false, data: err});
+    }
+
+    client.query('SELECT * FROM books WHERE id=$1', [req.params.bID], (err, results) => {
+      done();
+
+      if (err) {
+        console.error('Error with query', err);
+      }
+      console.log(results.rows);
+      res.books = results.rows;
+      next();
+    });
+  });
 };
