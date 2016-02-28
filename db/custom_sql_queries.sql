@@ -32,3 +32,18 @@ DELETE FROM books WHERE id = $x;
 --look in to VACUUM command for post-delete disk space cleanup
 
 --
+
+-- From harry in slack
+--
+-- -- Assume a table x_y_xref with cols x_id, y_id --
+-- -- Insert the rows: (1,2), (1,4), (1,7), (1,8), (1,10) --
+-- ​
+-- -- Using a single statement --
+-- INSERT INTO x_y_xref (x_id, y_id)
+-- SELECT 1 , y
+-- FROM UNNEST(ARRAY[2,4,7,8,10]) AS y;
+-- ​
+-- -- This is equivalent to the follwoing --
+-- INSERT INTO x_y_xref (x_id, y_id)
+-- VALUES
+-- (1,2), (1,4), (1,7), (1,8), (1,10);

@@ -114,14 +114,15 @@ module.exports.updateSingleBook = (req, res, next) => {
     }
 
 
-    client.query('UPDATE books SET title = $1, description = $2, cover = $3 WHERE id = $4', [req.body.title, req.body.description, req.body.cover, req.params.bID], (err, results) => {
+    client.query('UPDATE books SET title = $1, description = $2, cover = $3 WHERE id = $4 RETURNING *', [req.body.title, req.body.description, req.body.cover, req.params.bID], (err, results) => {
       console.log(req.body, req.params.bID, 'this was req.body and req.params.bID for updateSingleBook after update');
       done();
 
       if (err) {
         console.error('Error with query', err);
       }
-
+      console.log(results.rows, 'that was results.rows after update');
+      res.books = results.rows;
       next();
     });
 

@@ -3,12 +3,13 @@
   <head>
     <meta charset="utf-8">
     <title> <%= book[0].title %> </title>
+    <title>title here</title>
   </head>
   <body>
 
     <div class="mainContainer">
 
-
+      <% console.log(book, 'that was book on ejs page') %>
       <h3>Title</h3>
       <p>
         <%= book[0].title %>
@@ -24,7 +25,7 @@
       <!-- i should conver this to use partials. -->
 
 
-      <% include %>
+      <% include ./../partials/update_book %>
 
 
     </div>
