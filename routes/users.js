@@ -27,7 +27,7 @@ router
   .post('/', db.createUser, (req, res) => {
     res.redirect(303,'/');
   }) //works. redirects to 'index' page
-
+ 
 //post
 router.post('/', /*getusersfromSQL, */ notImplement)
 
