@@ -68,7 +68,8 @@ app.use(session({
   }), //expect errors from conString.
   secret: process.env.secret, // something we maybe want to save with dotenv *hint hint*
   resave: false,
-  cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 } // 30 days
+  cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 }, // 30 days
+  saveUninitialized: false
 }))
 
 //set view stuff
@@ -80,7 +81,7 @@ app.get('/', (req, res) => {
   res.render('index', { user: req.session.user } );
 });
 
-
+app.use( express.static( path.join ( __dirname, 'public') ) );
 
 app.use('/books', booksRoute);
 app.use('/users', usersRoute);
