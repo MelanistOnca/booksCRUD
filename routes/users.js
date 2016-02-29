@@ -6,6 +6,8 @@ var db = require('../db/user_fns');
 
 var users = express.Router();
 var bodyParser = require('body-parser'); //i think this is unnecessary since it's in server.js, but following tutorial.
+// var session = require('express-session');
+// var pgSession = require('connect-pg-simple')(session);
 
 
 
@@ -27,7 +29,22 @@ router
   .post('/', db.createUser, (req, res) => {
     res.redirect(303,'/');
   }) //works. redirects to 'index' page
- 
+
+
+router
+  .get('/login', (req,res) => {
+    res.render('users/login')
+  })
+  .post('/login', db.loginUser, (res, req) => {
+    console.log(res.rows, 'that was res.rows in users_fns.js'); //res.rows returns undefined
+    req.session.user = res.rows;
+    // when you redirect you must force a save due to asynchronisity
+    // https://github.com/expressjs/session/issues/167 **
+    // "modern web browsers ignore the body of the response and so start loading
+    // the destination page well before we finished sending the response to the client."
+
+    req.session.save( () => { res.redirect('/') } );
+  })
 //post
 router.post('/', /*getusersfromSQL, */ notImplement)
 

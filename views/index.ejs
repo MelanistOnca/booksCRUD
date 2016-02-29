@@ -6,7 +6,25 @@
   </head>
   <body>
 
-    This is the index page.
+    <div class="dummyContainer">
+      <h1>    This is the index page. </h1>
+    </div>
 
+
+    <div class="loginCheck">
+
+      <% if (user) {%>
+      <div class="loggedInWelcome">
+          <h3>Welcome <%= user.first_name %> </h3>
+      </div>
+      <% } %>
+
+      <% if(!user) { %>
+      <div class="loginContainer">
+        <a href="/users/login">Log in!</a>
+      </div>
+      <% } %>
+
+    </div>
   </body>
 </html>
