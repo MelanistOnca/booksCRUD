@@ -18,7 +18,10 @@ var notImplement = (req,res) => {
 //get
 router
   .get('/', db.getUsers, (req,res) => {
-    res.render('users/uindex', {users:res.users})
+    res.render('users/uindex', {
+      user: req.session.user,
+      users:res.users
+    })
   })
 
 //user signup

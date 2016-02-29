@@ -3,33 +3,22 @@
   <head>
     <meta charset="utf-8">
     <title>Index page</title>
+    <% include ./partials/header %>
+    <link rel="stylesheet" href="/css/index_style.css" charset="utf-8">
   </head>
   <body>
-
-    <div class="dummyContainer">
-      <h1>    This is the index page. </h1>
+    <!-- <img src="/images/wide_library_room_view.jpeg" alt="" /> -->
+    <div class="titleContainer container">
+      <h1>    Welcome to the Library </h1>
     </div>
 
+    <% include ./partials/user_action_clump %>
 
-    <div class="loginCheck">
-
-      <% if (user) {%>
-      <div class="loggedInWelcome">
-          <h3>Welcome <%= user.first_name %> </h3>
-      </div>
-      <% } %>
-
-      <% if(!user) { %>
-      <div class="loginContainer">
-        <a href="/users/login">Log in!</a>
-      </div>
-      <% } %>
-
-      <% if(user) { %>
-      <div class="logoutContainer">
-        <% include ./partials/logout_button %>
-      </div>
-      <% } %>
+    <div class="linksContainer">
+      <ul>
+        <li><a href="/books" class="button">Book Collection</a></li>
+        <li><a href="/users" class="button">All Users</a></li>
+      </ul>
 
     </div>
   </body>

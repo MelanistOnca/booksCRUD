@@ -55,7 +55,7 @@ router
 
 //put???
 router.put('/:bID', db.updateSingleBook, (req,res) => {
-  res.render('books/this_book', {book:res.books}) 
+  res.render('books/this_book', {book:res.books})
 } )
 
 module.exports = router;

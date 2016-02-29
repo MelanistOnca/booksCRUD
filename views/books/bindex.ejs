@@ -3,15 +3,21 @@
   <head>
     <meta charset="utf-8">
     <title>Books</title>
+    <% include ./../partials/header %>
   </head>
   <body>
-    This is the books page.
-    
+
+    <div class="titleContainer">
+    <h1>All the Books</h1>
+    </div>
+
+    <a href="/" class="button">Home</a>
     <ul>
       <% books.forEach( (book) => { %>
         <li> <% include ./../partials/show_book %> </li>
       <% } ); %>
     </ul>
+    <a href="/books/new_book" class="button">Add a book to the collection!</a>
 
   </body>
 </html>

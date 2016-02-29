@@ -14,9 +14,9 @@ var path = require('path');
 var express = require('express');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
+var pg = require('pg');
 var session = require('express-session');
 
-var pg = require('pg');
 var pgSession = require('connect-pg-simple')(session);
 
 var methodOverride = require('method-override');
@@ -31,12 +31,16 @@ var authorsRoute = require( path.join( __dirname, 'routes/authors') );
 var app = express();
 
 //DB config for db function files
-DB_config = {
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  database: process.env.DB_NAME,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS
+if(process.env.DATA_ENV === 'production'){
+  var DB_config = process.env.DATABASE_URL;
+} else {
+  var DB_config = {
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    database: process.env.DB_NAME,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS
+};
 };
 
 //connectionString because im trying to make login work

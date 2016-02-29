@@ -1,0 +1,39 @@
+body {
+  /*display: inline;*/
+  background-image: url('../images/wide_library_room_view.jpeg');
+   /*no-repeat center center fixed */
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  /*background-color: green;*/
+  /*z-index: 9999;*/
+
+}
+
+.loginCheck {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5%;
+}
+
+.loggedInWelcome {
+  /*background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5%;*/
+}
+
+.loginContainer {
+  text-align: center;
+  /*margin: 0 auto;*/
+}
+
+.button {
+  background-color: white;
+  text-shadow: none;
+  margin-top: 1rem;
+
+}
+
+#logout {
+  text-align: left;
+}

@@ -1,0 +1,31 @@
+<div class="loginCheck container row two columns">
+
+  <% if (user) {%>
+  <div class="loggedInWelcome container">
+      <h3>Nice to see you, <%= user.first_name %>! </h3>
+      <div class="logoutContainer container">
+
+        <% include ./logout_button %>
+
+      </div>
+  </div>
+
+
+  <% } %>
+
+  <% if(!user) { %>
+
+  <div class="newUserContainer">
+    <a href="/users/new_user_signup">Sign up!</a>
+  </div>
+  <div class="loginContainer">
+      <a href="/users/login" class="button">Log in!</a>
+  </div>
+
+  
+  <% } %>
+
+
+
+
+</div>
