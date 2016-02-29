@@ -1,0 +1,13 @@
+<div class="deleteBookContainer">
+  <h1>THERE BE DRAGONS HERE</h1>
+  <p>
+    Use button below to delete this book from the library.
+  </p>
+  <form class="form-horizontal" action="/books/<%= book[0].id %>?_method=DELETE" method="post">
+
+
+    <% include ./../partials/delete_button %>
+
+
+  </form>
+</div>

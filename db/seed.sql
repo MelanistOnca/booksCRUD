@@ -24,6 +24,10 @@ INSERT INTO genres (name) VALUES
 ('Low Fantasy'),
 ('Dystopian');
 
+-- Insert a user so I can check queries are working. lacks a password_digest as i have not yet done user login functionality
+INSERT INTO users (first_name, last_name, email, zip) VALUES
+('barney', 'userson', 'barney.userson@email.com', 11540);
+
 -- Inserting some booksJoinGenres
 INSERT INTO booksJoinGenres (book_id, genre_id) VALUES
 (1,1),

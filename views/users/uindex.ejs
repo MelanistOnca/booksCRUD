@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> no title</title>
+  </head>
+  <body>
+    This is the users page.
+
+    <div class="signup">
+      <a href="./users/new_user">Sign up!</a>
+    </div>
+
+    <!-- this may not be going where i want it to. -->
+
+    <ul>
+      <% users.forEach( (user) => { %>
+        <li> <% include ./../partials/show_user %> </li>
+      <% } ); %>
+    </ul>
+
+  </body>
+</html>

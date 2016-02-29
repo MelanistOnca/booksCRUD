@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Index page</title>
+  </head>
+  <body>
+
+    <div class="dummyContainer">
+      <h1>    This is the index page. </h1>
+    </div>
+
+
+    <div class="loginCheck">
+
+      <% if (user) {%>
+      <div class="loggedInWelcome">
+          <h3>Welcome <%= user.first_name %> </h3>
+      </div>
+      <% } %>
+
+      <% if(!user) { %>
+      <div class="loginContainer">
+        <a href="/users/login">Log in!</a>
+      </div>
+      <% } %>
+
+      <% if(user) { %>
+      <div class="logoutContainer">
+        <% include ./partials/logout_button %>
+      </div>
+      <% } %>
+
+    </div>
+  </body>
+</html>

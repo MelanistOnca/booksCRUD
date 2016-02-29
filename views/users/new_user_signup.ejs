@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>New User Sign Up</title>
+  </head>
+  <body>
+
+    <h1>Welcome to the sign-up page!</h1>
+
+    <form action="/users" method="post">
+
+      <% include ./../partials/user_email_entry %>
+      <% include ./../partials/user_password_entry %>
+      <% include ./../partials/user_first_name_entry %>
+      <% include ./../partials/user_last_name_entry %>
+      <% include ./../partials/user_zip_entry %>
+
+      
+
+    <input type="submit" value="Submit">
+  </form>
+
+
+  </body>
+</html>
