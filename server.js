@@ -50,7 +50,7 @@ if(process.env.DATA_ENV === 'production'){
 
 
 //determine logger version
-if( process.env.NODE_ENV === 'development' ){
+if( process.env.DATA_ENV === 'development' ){
   app.use(morgan('dev'));
 } else {
   app.use(morgan('common'));
@@ -70,7 +70,7 @@ app.use(session({
     conString : DB_config,
     tableName : 'session'
   }), //expect errors from conString.
-  secret: process.env.secret, // something we maybe want to save with dotenv *hint hint*
+  secret: process.env.ENV_SECRET, // something we maybe want to save with dotenv *hint hint*
   resave: false,
   cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 }, // 30 days
   saveUninitialized: false
