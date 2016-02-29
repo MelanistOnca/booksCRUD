@@ -25,6 +25,12 @@
       </div>
       <% } %>
 
+      <% if(user) { %>
+      <div class="logoutContainer">
+        <% include ./partials/logout_button %>
+      </div>
+      <% } %>
+
     </div>
   </body>
 </html>
