@@ -1,0 +1,17 @@
+body {
+  color: #C5DE7A;
+  text-shadow: 1px 1px #000, 1px 1px 1px #FFF;
+  background-color: grey;
+}
+
+.titleContainer {
+  text-align: center;
+}
+
+.red {
+  color: red;
+}
+
+.border {
+  border: 1px;
+}

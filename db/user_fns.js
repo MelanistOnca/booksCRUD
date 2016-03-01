@@ -14,13 +14,19 @@ var salt = bcrypt.genSaltSync(10); //i think this is where colin meant when refe
 
 
 
-// var config = {
-//   host: process.env.DB_HOST,
-//   port: process.env.DB_PORT,
-//   database: process.env.DB_NAME,
-//   user: process.env.DB_USER,
-//   password: process.env.DB_PASS
-// }; // or use connectionString instead. //should be able to call DB_config since it is defined in server.js
+if( process.env.DATA_ENV === 'production' ) {
+  var DB_config = process.env.DATABASE_URL;
+} else if( process.env.DATA_ENV === 'development' ){
+  var DB_config = {
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    database: process.env.DB_NAME,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS
+};
+} else {
+  console.log('DB_config is messed up');
+}
 
 module.exports.getUsers = (req, res, next) => {
   pg.connect(DB_config, (err, client, done) => {

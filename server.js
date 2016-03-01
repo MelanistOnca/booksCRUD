@@ -14,9 +14,9 @@ var path = require('path');
 var express = require('express');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
+var pg = require('pg');
 var session = require('express-session');
 
-var pg = require('pg');
 var pgSession = require('connect-pg-simple')(session);
 
 var methodOverride = require('method-override');
@@ -31,13 +31,20 @@ var authorsRoute = require( path.join( __dirname, 'routes/authors') );
 var app = express();
 
 //DB config for db function files
-DB_config = {
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  database: process.env.DB_NAME,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS
+if( process.env.DATA_ENV === 'production' ) {
+  var DB_config = process.env.DATABASE_URL;
+} else if( process.env.DATA_ENV === 'development' ){
+  var DB_config = {
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    database: process.env.DB_NAME,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS
 };
+} else {
+  console.log('DB_config is messed up');
+}
+//this seemed to be working fine here, but the *_fns.js files no longer seem to be recognizing it.
 
 //connectionString because im trying to make login work
 // var connectionString = 'postgres://Cthulu:' + process.env.DB_PASSWORD + '@localhost/project2'; //didn't work, got different error
@@ -46,7 +53,7 @@ DB_config = {
 
 
 //determine logger version
-if( process.env.NODE_ENV === 'development' ){
+if( process.env.DATA_ENV === 'development' ){
   app.use(morgan('dev'));
 } else {
   app.use(morgan('common'));
@@ -66,9 +73,10 @@ app.use(session({
     conString : DB_config,
     tableName : 'session'
   }), //expect errors from conString.
-  secret: process.env.secret, // something we maybe want to save with dotenv *hint hint*
+  secret: process.env.ENV_SECRET, // something we maybe want to save with dotenv *hint hint*
   resave: false,
-  cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 } // 30 days
+  cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 }, // 30 days
+  saveUninitialized: false
 }))
 
 //set view stuff
@@ -80,7 +88,7 @@ app.get('/', (req, res) => {
   res.render('index', { user: req.session.user } );
 });
 
-
+app.use( express.static( path.join ( __dirname, 'public') ) );
 
 app.use('/books', booksRoute);
 app.use('/users', usersRoute);

@@ -3,10 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title> <%= book[0].title %> </title>
-    <title>title here</title>
+    <% include ./../partials/header %>
+    <link rel="stylesheet" href="/css/this_book_style.css"
   </head>
   <body>
-
+    <a href="/" class="button home">Home</a>
     <div class="mainContainer">
 
       <% console.log(book, 'that was book on ejs page') %>

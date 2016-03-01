@@ -1,0 +1,52 @@
+body {
+  background-image: url('../images/dense_library_bookcase.jpeg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
+}
+
+.loginCheck {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5%;
+}
+
+
+/*a{
+  color: #44FC30;
+}*/
+.signupButton{
+  padding: 0 5%;
+}
+.loginButton{
+  padding: 0 5%;
+}
+.loginContainer {
+  text-align: center;
+}
+
+.button {
+  background-color: white;
+  text-shadow: none;
+  margin-top: 1rem;
+
+}
+
+.home {
+  text-align: center;
+  margin: 0 auto;
+}
+
+#logout {
+  text-align: left;
+}
+
+li {
+  background-color: rgba(200, 150, 150, 0.4);
+}
+
+ul {
+  list-style-type: none;
+}

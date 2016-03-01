@@ -1,0 +1,27 @@
+body {
+  background-image: url('../images/open_book_mug.jpeg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
+}
+
+.button {
+  background-color: white;
+  text-shadow: none;
+  margin-top: 1rem;
+
+}
+.submit {
+  background-color: white;
+  text-shadow: none;
+  margin-top: 1rem;
+
+}
+
+.vaporize {
+  background-color: red;
+  text-shadow: none;
+  margin-top: 1rem;
+}

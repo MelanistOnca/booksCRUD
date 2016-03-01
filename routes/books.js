@@ -13,7 +13,10 @@ var notImplement = (req,res) => {
 // router.get('/', /*getBooksfromSQL, */notImplement )
 router
   .get('/', db.getBooks, (req,res) => {
-    res.render('books/bindex', {books:res.books});
+    res.render('books/bindex', {
+      books:res.books,
+      user: req.session.user
+    });
   });
 
 //get single book
@@ -55,7 +58,7 @@ router
 
 //put???
 router.put('/:bID', db.updateSingleBook, (req,res) => {
-  res.render('books/this_book', {book:res.books}) 
+  res.render('books/this_book', {book:res.books})
 } )
 
 module.exports = router;
