@@ -13,7 +13,10 @@ var notImplement = (req,res) => {
 // router.get('/', /*getBooksfromSQL, */notImplement )
 router
   .get('/', db.getBooks, (req,res) => {
-    res.render('books/bindex', {books:res.books});
+    res.render('books/bindex', {
+      books:res.books,
+      user: req.session.user
+    });
   });
 
 //get single book
