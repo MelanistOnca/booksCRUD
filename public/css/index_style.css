@@ -1,14 +1,9 @@
 body {
-  /*display: inline;*/
   background-image: url('../images/wide_library_room_view.jpeg');
-   /*no-repeat center center fixed */
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  /*background-color: green;*/
-  /*z-index: 9999;*/
-
 }
 
 .loginCheck {
@@ -36,4 +31,9 @@ body {
 
 #logout {
   text-align: left;
+}
+
+ul
+{
+    list-style-type: none;
 }

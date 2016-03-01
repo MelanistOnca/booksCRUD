@@ -31,9 +31,9 @@ var authorsRoute = require( path.join( __dirname, 'routes/authors') );
 var app = express();
 
 //DB config for db function files
-if(process.env.DATA_ENV === 'production'){
+if( process.env.DATA_ENV === 'production' ) {
   var DB_config = process.env.DATABASE_URL;
-} else {
+} else if( process.env.DATA_ENV === 'development' ){
   var DB_config = {
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
@@ -41,7 +41,10 @@ if(process.env.DATA_ENV === 'production'){
     user: process.env.DB_USER,
     password: process.env.DB_PASS
 };
-};
+} else {
+  console.log('DB_config is messed up');
+}
+//this seemed to be working fine here, but the *_fns.js files no longer seem to be recognizing it.
 
 //connectionString because im trying to make login work
 // var connectionString = 'postgres://Cthulu:' + process.env.DB_PASSWORD + '@localhost/project2'; //didn't work, got different error
