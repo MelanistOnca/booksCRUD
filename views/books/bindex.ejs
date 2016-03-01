@@ -15,12 +15,12 @@
     <% include ./../partials/user_action_clump %>
 
 
-    <div class="bookList container">
+    <div class="bookList container u-pull-right">
 
 
-    <ul>
+    <ul class="row">
       <% books.forEach( (book) => { %>
-        <li> <% include ./../partials/show_book %> </li>
+        <li class="u-max-full-width"> <% include ./../partials/show_book %> </li>
       <% } ); %>
     </ul>
     </div>

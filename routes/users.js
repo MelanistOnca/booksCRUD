@@ -20,14 +20,14 @@ router
   .get('/', db.getUsers, (req,res) => {
     res.render('users/uindex', {
       user: req.session.user,
-      users:res.users
+      users: res.users
     })
   })
 
 //user signup
 router
   .get('/new_user', /*db.newUser,*/ (req,res) => {
-    res.render('users/new_user_signup')
+    res.render('users/new_user_signup');
   } )
   .post('/', db.createUser, (req, res) => {
     res.redirect(303,'/');

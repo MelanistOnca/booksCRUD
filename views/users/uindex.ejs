@@ -4,21 +4,27 @@
     <meta charset="utf-8">
     <title> User Directory</title>
     <% include ./../partials/header %>
+    <link rel="stylesheet" href="/css/users_style.css" charset="utf-8">
   </head>
   <body>
-    This is the users page.
+
 <a href="/" class="button home">Home</a>
-    <div class="signup">
+    <!-- <div class="signup">
       <a href="./users/new_user">Sign up!</a>
-    </div>
+    </div> -->
+    <% include ./../partials/user_action_clump %>
 
     <!-- this may not be going where i want it to. -->
+    <h1>Here are other book people!</h1>
+    <div class="userList container u-pull-right">
+
 
     <ul>
       <% users.forEach( (user) => { %>
         <li> <% include ./../partials/show_user %> </li>
       <% } ); %>
     </ul>
+    </div>
 
   </body>
 </html>
