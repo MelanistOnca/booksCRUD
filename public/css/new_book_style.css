@@ -1,0 +1,28 @@
+body {
+  background-image: url('../images/blank_open_book_w_pen.jpeg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#submit {
+  background-color: white;
+  text-shadow: none;
+  margin-top: 1rem;
+
+}
+
+.button {
+  background-color: white;
+  text-shadow: none;
+  margin-top: 1rem;
+}
+
+.homeContainer{
+  text-align: center;
+}
+
+.newBookContainer {
+  text-align: center;
+}

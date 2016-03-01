@@ -3,15 +3,28 @@
   <head>
     <meta charset="utf-8">
     <title>Books</title>
+    <% include ./../partials/header %>
+    <link rel="stylesheet" href="/css/books_style.css" charset="utf-8">
   </head>
   <body>
-    This is the books page.
-    
-    <ul>
+
+    <div class="titleContainer">
+    <h1>All the Books</h1>
+    </div>
+    <a href="/" class="button home">Home</a>
+    <% include ./../partials/user_action_clump %>
+
+
+    <div class="bookList container u-pull-right">
+
+
+    <ul class="row">
       <% books.forEach( (book) => { %>
-        <li> <% include ./../partials/show_book %> </li>
+        <li class="u-max-full-width"> <% include ./../partials/show_book %> </li>
       <% } ); %>
     </ul>
+    </div>
+    <a href="/books/new_book" class="button">Add a book to the collection!</a>
 
   </body>
 </html>

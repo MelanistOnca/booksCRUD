@@ -1,0 +1,51 @@
+body {
+  background-image: url('../images/wide_library_room_view.jpeg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
+}
+
+.loginCheck {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5%;
+}
+
+
+.signupButton{
+  padding: 0 5%;
+}
+.loginButton{
+  padding: 0 5%;
+}
+.loginContainer {
+  text-align: center;
+}
+
+.button {
+  background-color: white;
+  text-shadow: none;
+  margin-top: 1rem;
+
+}
+
+
+#logout {
+  text-align: left;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.booksButton {
+  position: relative;
+  left: -10%;
+}
+
+.usersButton {
+  position: relative;
+  left: -10%;
+}
